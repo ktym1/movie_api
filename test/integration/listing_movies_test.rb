@@ -15,7 +15,7 @@ class ListingMoviesTest < ActionDispatch::IntegrationTest
     get "/movies/#{movie.id}"
     assert_equal 200, response.status
   
-  movie_response = JSON.parse(response.body, symbolize_names: true)
+  movie_response = json(response.body)
   assert_equal movie.title, movie_response[:title]
   
   end
