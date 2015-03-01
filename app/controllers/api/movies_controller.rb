@@ -15,5 +15,17 @@ module API
       movie = Movie.find(params[:id])
       render json: movie, status: 200
     end
+
+    def create
+      movie = Movie.new(movie_params)
+      if movie.save
+        render json: movie, status:201, location: movie
+      end
+    end
+
+    private
+      def movie_params
+        params.require(:movie).permit(:title, :director, :year)
+      end
   end
 end
