@@ -19,4 +19,16 @@ class ListingMoviesTest < ActionDispatch::IntegrationTest
   assert_equal movie.title, movie_response[:title]
   
   end
+
+  test 'returns movies in JSON' do
+    get '/movies', {}, { 'Accept' => Mime::JSON }
+    assert_equal 200, response.status
+    assert_equal Mime::JSON, response.content_type
+  end
+
+  test 'returns movies in XML' do 
+    get '/movies', {}, {'Accept' => Mime::XML}
+    assert_equal 200, response.status
+    assert_equal Mime::XML, response.content_type
+  end
 end

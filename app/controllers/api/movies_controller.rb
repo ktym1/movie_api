@@ -3,7 +3,12 @@ module API
 
     def index
       movies = Movie.all
-      render json: movies, status: 200
+      
+      respond_to do |format|
+        format.html { render html: movies, status: 200 }
+        format.json { render json: movies, status: 200 }
+        format.xml { render xml: movies, status: 200 }
+      end
     end
 
     def show
