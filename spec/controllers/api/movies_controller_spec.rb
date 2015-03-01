@@ -1,5 +1,5 @@
-require 'spec_helper'
+# require 'spec_helper'
 
-describe API::MoviesController do
+# describe API::MoviesController do
 
-end
+# end
