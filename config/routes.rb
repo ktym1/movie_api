@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   root :to => "movies#index"
-  namespace :api, path: '/', constraints: { subdomain: 'api'} do
+  namespace :api, path: '/' do
     resources :movies
   end
   
