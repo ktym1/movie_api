@@ -19,7 +19,7 @@ module API
     def create
       movie = Movie.new(movie_params)
       if movie.save
-        render json: movie, status:201, location: movie
+        render json: movie, status:201
       end
     end
 
